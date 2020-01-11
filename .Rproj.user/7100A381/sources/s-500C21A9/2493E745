@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1575484928152.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "2493E745",
+    "lastKnownWriteTime" : 1572902036,
+    "last_content_update" : 1575487214020,
+    "path" : "~/Desktop/Fall2019/IE590/HW3/Q1b.R",
+    "project_path" : "Q1b.R",
+    "properties" : {
+        "cursorPosition" : "46,8",
+        "scrollLine" : "12"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

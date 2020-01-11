@@ -1,0 +1,84 @@
+library("rgp")
+#define function set, input variables, and constant factory function. 
+#functionSet2 = functionSet("+", "*", "-", "exp", "sqrt")
+inputVariableSet2 = inputVariableSet("x")
+constantFactorySet2 = constantFactorySet(function() rnorm(1))
+
+# IMPORTING THE DATASET
+dataset2 = read.csv("data2.csv", header=T,
+                   colClasses = c("numeric", "numeric", "numeric", "numeric"))
+
+#linearmodel3 = lm(y~x1 + x3, data=dataset2)
+#summary(linearmodel3)
+
+#symmodelitercase2  = symbolicRegression(y ~ x1+x2+x3,
+#                                   data = dataset2, searchHeuristic = makeTinyGpSearchHeuristic(crossoverProbability = 0.9, tournamentSize = 2), stopCondition =makeTimeStopCondition(4*60))
+symmodelitercase2  = symbolicRegression(y ~ x1+x2+x3,
+                                  data = dataset2, 
+                                  searchHeuristic = makeTinyGpSearchHeuristic(), 
+                                  stopCondition =makeTimeStopCondition(5*60))
+
+bestModelcase2 = symmodelitercase2$population[[which.min(symmodelitercase2$fitnessValues)]]
+
+symmodelitercase2v3  = symbolicRegression(y ~ x1+x2+x3,
+                                        data = dataset2, 
+                                        searchHeuristic = makeArchiveBasedParetoTournamentSearchHeuristic(), 
+                                        stopCondition =makeTimeStopCondition(5*60))
+
+bestModelcase2v3 = symmodelitercase2v3$population[[which.min(symmodelitercase2v3$fitnessValues)]]
+
+
+# AVERAGE convergence ------------------------------------------
+progressMonitor <- function(pop, objectiveVectors, fitnessFunction, stepNumber, evaluationNumber, bestFitness, timeElapsed, ...){
+  gbestfit1 <<- c(gbestfit1, bestFitness)
+  #message(bestFitness)
+}
+
+iterations = 5
+mylist = list()
+for (iter in 1:iterations){
+  gbestfit1 <<- c()
+  symmodelitercase2  = symbolicRegression(y ~ x1+x2+x3,
+                                          data = dataset2, 
+                                          searchHeuristic = makeTinyGpSearchHeuristic(), 
+                                          progressMonitor = progressMonitor,
+                                          stopCondition =makeTimeStopCondition(1*60))
+  print(gbestfit1)
+  mylist[[iter]] <- gbestfit1
+  
+}
+
+
+
+dflength = min(lengths(mylist))
+resmat = matrix(NA, nrow = iterations, ncol = dflength)
+
+for(i in 1:iterations){
+  for(j in 1:dflength  ){
+    resmat[i,j] <- mylist[[i]][j]
+  }
+}
+
+n_groups <-  dflength
+means <-  rep(NA, dflength)
+cis <- matrix(nrow = dflength, ncol = 2)
+
+for (i in 1:dflength){
+  #get relevent data
+  reldata = resmat[,i]
+  #get means
+  means[i] = mean(reldata, na.rm = TRUE)
+  #construct CIs
+  stdev <- sd(reldata)
+  n <- sum(!is.na(reldata))
+  se <- stdev/sqrt(n)
+  
+  #store CI
+  cis[i, 1] <- means[i] - 1.96*se
+  cis[i, 2] <- means[i] + 1.96*se
+}
+plot(1:dflength, y = means, col = "red", cex = 1, xlab = "Iterations", ylab = "RMSE")
+segments(x0 = 1:dflength, x1 = 1:dflength, y0 = cis[,1], y1 = cis[,2], col= "green", lwd = 0.005)
+
+
+

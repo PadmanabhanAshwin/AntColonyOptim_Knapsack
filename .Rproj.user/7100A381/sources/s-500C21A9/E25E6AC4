@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1575484861742.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "E25E6AC4",
+    "lastKnownWriteTime" : 1572649320,
+    "last_content_update" : 1575484877060,
+    "path" : "~/Desktop/Fall2019/IE590/HW3/main.R",
+    "project_path" : "main.R",
+    "properties" : {
+        "cursorPosition" : "21,17",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
