@@ -15,7 +15,7 @@ The implementation was inspired from the pseudo-code given in
 \[1\]. The **transition probability** is given by (probability
 that an ant selects a given item to place into the knapsack):
 
-![Transition Probability](transprob.png)
+![Transition Probability](\Images\transprob.png)
 
 I initialised \[tau\] to 10 for each item initially. The $\mu$ was
 defined as: $$\begin{aligned}
