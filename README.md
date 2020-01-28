@@ -15,9 +15,7 @@ The implementation was inspired from the pseudo-code given in
 \[1\]. The **transition probability** is given by (probability
 that an ant selects a given item to place into the knapsack):
 
-$$
-    p_j = \frac{\tau_j^\alpha*\mu^\beta_j}{\sum_{j\in N_i} \tau_j^\alpha * \mu_j^\beta}
-$$
+<img src="/transprob" width="250" height="250"> 
 
 I initialised \[tau\] to 10 for each item initially. The $\mu$ was
 defined as: $$\begin{aligned}
