@@ -12,11 +12,14 @@ This repo deals with the implementation of an Ant-Colony based heuristic to solv
 #### Quick code review: 
 
 The implementation was inspired from the pseudo-code given in
-[@2013schiff]. The **transition probability** is given by (probability
+\[1\]. The **transition probability** is given by (probability
 that an ant selects a given item to place into the knapsack):
-$$\begin{aligned}
-    p_j = \frac{\tau_j^\alpha*\mu^\beta_j}{\sum_{j\in N_i} \tau_j^\alpha * \mu_j^\beta}\end{aligned}$$
-I initialised $\tau$ to 10 for each item initially. The $\mu$ was
+
+$$
+    p_j = \frac{\tau_j^\alpha*\mu^\beta_j}{\sum_{j\in N_i} \tau_j^\alpha * \mu_j^\beta}
+$$
+
+I initialised \[tau\] to 10 for each item initially. The $\mu$ was
 defined as: $$\begin{aligned}
     \mu_j = \frac{z_j}{\frac{w_j}{C}}\end{aligned}$$ where $z_j$ is the
 value of objected indexed $j$, $w_j$ is the weight of object $j$ and $C$
@@ -73,4 +76,6 @@ lesser time than the GA for each iterations. But a comparison is
 difficult based on the fitness calls, since the ACO algorithm does not
 directly calculate the fitness while constructing the solution.
 
-\bibliographystyle{plainnat}
+#### References:
+
+* \[1\]  "Ant Colony Optimization Algorithm for the 1-0 Knapsack Problem", Krzysztof Schiff, Technical Transactions, 2013.
