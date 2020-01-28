@@ -17,7 +17,7 @@ that an ant selects a given item to place into the knapsack):
 
 <img src="/Images/transprob.png" align="middle"> 
 
-I initialised \[tau\] to 10 for each item initially. The $\mu$ was
+I initialised \tau to 10 for each item initially. The $\mu$ was
 defined as: $$\begin{aligned}
     \mu_j = \frac{z_j}{\frac{w_j}{C}}\end{aligned}$$ where $z_j$ is the
 value of objected indexed $j$, $w_j$ is the weight of object $j$ and $C$
