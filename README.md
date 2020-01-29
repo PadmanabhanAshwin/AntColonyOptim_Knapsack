@@ -46,7 +46,7 @@ probability of picking a certain item as long as the knapsack capacity
 is not violated (see below).
 
 <img src="/Images/contour.png" align="middle" width="250" height="250"> 
-<img src="/Images/alpha_beta_transition.png" align="middle" width="250" height="250"> 
+<img src="/Images/Alpha_beta_transition.png" align="middle" width="250" height="250"> 
 
 To check for how often it converges, I ran the Ant Colony Optimization
 30 times (for both instances) and it converges every time. Statistics
