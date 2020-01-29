@@ -35,7 +35,7 @@ used 10 ants for each iteration and 20 iterations for each run of the
 ACO. 20 iterations seems enough to converge to the optimal.
 
 The **pheromone update rule** is:
-<img src="/Images/tau.png" align="middle"> 
+<img src="/Images/tau.png" align="middle" > 
 <img src="/Images/deltatau.png" align="middle"> 
 
 During **modelling of evaporation** a key parameter is \rho, the rate
@@ -45,8 +45,8 @@ pheromone will never drop below 0.05 so that there is always non-zero
 probability of picking a certain item as long as the knapsack capacity
 is not violated (see below).
 
-<img src="/Images/contour.png" align="middle"> 
-<img src="/Images/alpha_beta_transition.png" align="middle"> 
+<img src="/Images/contour.png" align="middle" width="250" height="250"> 
+<img src="/Images/alpha_beta_transition.png" align="middle" width="250" height="250"> 
 
 To check for how often it converges, I ran the Ant Colony Optimization
 30 times (for both instances) and it converges every time. Statistics
